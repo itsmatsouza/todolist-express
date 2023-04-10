@@ -25,6 +25,6 @@ app.use("/checklist", checklistRouter);
 app.use("/checklist", taskRouter.checklistDependentRoute);
 app.use("/task", taskRouter.simple);
 
-app.listen('https://itsmatsouza.github.io/todolist-express/', () => {
+app.listen(3000, () => {
   console.log("O servidor foi iniciado");
 });
