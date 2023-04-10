@@ -1,0 +1,45 @@
+<%- include('../pages/layouts/header.ejs', {title: 'Visualizando Tarefa'}) %>
+
+<%-include('../pages/layouts/menu.ejs') %>
+
+<section class="section">
+  <div class="container">
+    <div class="columns">
+      <div class="column is-four-fifths">
+        <h1 class="title size-4"><%= checklist.name %></h1>
+      </div>
+      <div class="column is-one-fifth">
+        <a
+          href="/checklist/<%= checklist._id %>/task/new"
+          class="button is-success is-small"
+          >Nova Tarefa</a
+        >
+        <a href="/checklist" class="button is-small">Voltar</a>
+      </div>
+    </div>
+
+    <hr />
+
+    <% checklist.tasks.forEach(task => { %>
+    <div class="columns">
+      <div
+        class="column is-four-fifths <%= task.done ? 'has-text-success is-italic' : '' %>"
+      >
+        <input type="checkbox" onchange="setTagAsDone(this, '<%= task._id %>')"
+        <%= task.done ? 'checked' : '' %> />
+        <%= task.name %>
+      </div>
+
+      <div class="column is-one-fifth">
+        <a
+          href="/task/<%= task.id %>?_method=delete"
+          class="button is-danger is-small"
+          >Remover</a
+        >
+      </div>
+    </div>
+    <% }) %>
+  </div>
+</section>
+
+<%- include('../pages/layouts/footer.ejs') %>
