@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 mongoose.Promise = global.Promise;
 
 mongoose
-  .connect("mongodb://localhost/todo-list", {
+  .connect("mongodb+srv://itsmatsouza:82842729m@cluster0.upbrpqg.mongodb.net/todo-list", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
